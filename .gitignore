@@ -1,3 +1,9 @@
+# ignore all folders with this name:
 **/__pycache__
-**/**.pyc
+
+# ignore these folders:
 .vscode
+
+# ignore the following file extensions:
+**.pyc
+**.log**
