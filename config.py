@@ -18,3 +18,5 @@ class Config(object):
     ADMINS = ['dfilter@evertz.com']
 
     POSTS_PER_PAGE = 4
+
+    LANGUAGES = ['en-CA', 'fr-CA']
