@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-01 13:44-0400\n"
-"PO-Revision-Date: 2019-08-01 12:44-0400\n"
+"POT-Creation-Date: 2019-08-01 15:00-0400\n"
+"PO-Revision-Date: 2019-08-01 15:02-0400\n"
 "Last-Translator: \n"
 "Language: fr\n"
 "Language-Team: fr <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: app/__init__.py:23
 msgid "Please log in to access this page."
@@ -38,7 +39,7 @@ msgstr "Mot de passe"
 msgid "Remember Me"
 msgstr "Souviens-toi de moi"
 
-#: app/forms.py:16 app/routes.py:76 app/templates/login.html:5
+#: app/forms.py:16 app/routes.py:83 app/templates/login.html:5
 msgid "Sign In"
 msgstr "Se connecter"
 
@@ -50,7 +51,7 @@ msgstr "Email"
 msgid "Repeat Password"
 msgstr "Répéter le mot de passe"
 
-#: app/forms.py:26 app/routes.py:97 app/templates/register.html:5
+#: app/forms.py:26 app/routes.py:104 app/templates/register.html:5
 msgid "Register"
 msgstr "Registre"
 
@@ -78,70 +79,78 @@ msgstr "Soumettre"
 msgid "Say something"
 msgstr "Dis quelquechose"
 
-#: app/routes.py:32
+#: app/routes.py:39
 msgid "Your post is now live!"
 msgstr "Votre message est maintenant en ligne!"
 
-#: app/routes.py:41 app/templates/base.html:21
+#: app/routes.py:48 app/templates/base.html:21
 msgid "Home"
 msgstr "Accueil"
 
-#: app/routes.py:56 app/templates/base.html:22
+#: app/routes.py:63 app/templates/base.html:22
 msgid "Explore"
 msgstr "Explorer"
 
-#: app/routes.py:69
+#: app/routes.py:76
 msgid "Invalid username or password"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: app/routes.py:95
+#: app/routes.py:102
 msgid "Congratulations, you are now a registered user!"
 msgstr "Félicitations, vous êtes maintenant un utilisateur enregistré!"
 
-#: app/routes.py:110
+#: app/routes.py:117
 msgid "Check your email for the instructions to reset your password"
 msgstr ""
 "Consultez votre email pour les instructions pour réinitialiser votre mot "
 "de passe"
 
-#: app/routes.py:113 app/templates/reset_password_request.html:5
+#: app/routes.py:120 app/templates/reset_password_request.html:5
 msgid "Reset Password"
 msgstr "Réinitialiser le mot de passe"
 
-#: app/routes.py:127
+#: app/routes.py:134
 msgid "Your password has been reset."
 msgstr "Votre mot de passe a été réinitialisé."
 
-#: app/routes.py:155
+#: app/routes.py:162
 msgid "Your changes have been saved."
 msgstr "Vos changements ont été enregistrés."
 
-#: app/routes.py:160 app/templates/edit_profile.html:5
+#: app/routes.py:167 app/templates/edit_profile.html:5
 msgid "Edit Profile"
 msgstr "Editer le profil"
 
-#: app/routes.py:169 app/routes.py:185
+#: app/routes.py:176 app/routes.py:192
 #, python-format
 msgid "User %(username)s not found."
 msgstr "L'utilisateur %(username)s n'est pas trouvé."
 
-#: app/routes.py:172
+#: app/routes.py:179
 msgid "You cannot follow yourself!"
 msgstr "Vous ne pouvez pas vous suivre!"
 
-#: app/routes.py:176
+#: app/routes.py:183
 #, python-format
 msgid "You are following %(username)s!"
 msgstr "Vous suivez %(username)s!"
 
-#: app/routes.py:188
+#: app/routes.py:195
 msgid "You cannot unfollow yourself!"
 msgstr "Vous ne pouvez pas vous désabonner!"
 
-#: app/routes.py:192
+#: app/routes.py:199
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "Vous ne suivez pas %(username)s."
+
+#: app/translate.py:12
+msgid "Error: the translation service is not configured."
+msgstr "Erreur: le service de traduction n'est pas configuré."
+
+#: app/translate.py:19
+msgid "Error: the translation service failed."
+msgstr "Erreur: le service de traduction a échoué."
 
 #: app/templates/404.html:4
 msgid "Not Found"
@@ -164,6 +173,10 @@ msgstr "L'administrateur a été notifié. Désolé pour le dérangement!"
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s m'a dit %(when)s"
 
+#: app/templates/_post.html:25
+msgid "Translate"
+msgstr "Traduire"
+
 #: app/templates/base.html:4
 msgid "Welcome to Microblog"
 msgstr "Bienvenue sur Microblog"
@@ -179,6 +192,10 @@ msgstr "Profil"
 #: app/templates/base.html:29
 msgid "Logout"
 msgstr "Connectez - Out"
+
+#: app/templates/base.html:66
+msgid "Error: Could not contact server."
+msgstr "Erreur: Impossible de contacter le serveur."
 
 #: app/templates/index.html:5
 #, python-format
@@ -242,4 +259,3 @@ msgstr "Suivre"
 #: app/templates/user.html:19
 msgid "Unfollow"
 msgstr "Se désabonner"
-

@@ -8,4 +8,5 @@ rem set MAIL_PASSWORD=<your-gmail-password>
 rem ---------------------------------------
 set FLASK_ENV=development
 set FLASK_DEBUG=1
+set MS_TRANSLATOR_KEY=596172d408f34dce8d674ed953bf1eb0
 python -m flask run
