@@ -3,6 +3,7 @@
 
 # ignore these folders:
 .vscode
+.env
 
 # ignore the following file extensions:
 **.pyc
