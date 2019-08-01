@@ -17,4 +17,4 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['dfilter@evertz.com']
 
-    POSTS_PER_PAGE = 25
+    POSTS_PER_PAGE = 4
