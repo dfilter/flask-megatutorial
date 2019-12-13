@@ -31,7 +31,8 @@ def index():
         language = guess_language(form.post.data)
         if language == 'UNKNOWN' or len(language) > 5:
             language = ''
-        post = Post(body=form.post.data, author=current_user,
+        post = Post(body=form.post.data,
+                    author=current_user,
                     language=language)
         db.session.add(post)
         db.session.commit()
@@ -44,8 +45,11 @@ def index():
         if posts.has_next else None
     prev_url = url_for('main.index', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title=_('Home'), form=form,
-                           posts=posts.items, next_url=next_url,
+    return render_template('index.html',
+                           title=_('Home'),
+                           form=form,
+                           posts=posts.items,
+                           next_url=next_url,
                            prev_url=prev_url)
 
 
@@ -59,8 +63,10 @@ def explore():
         if posts.has_next else None
     prev_url = url_for('main.explore', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title=_('Explore'),
-                           posts=posts.items, next_url=next_url,
+    return render_template('index.html',
+                           title=_('Explore'),
+                           posts=posts.items,
+                           next_url=next_url,
                            prev_url=prev_url)
 
 
@@ -71,12 +77,17 @@ def user(username):
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('main.user', username=user.username,
+    next_url = url_for('main.user',
+                       username=user.username,
                        page=posts.next_num) if posts.has_next else None
-    prev_url = url_for('main.user', username=user.username,
+    prev_url = url_for('main.user',
+                       username=user.username,
                        page=posts.prev_num) if posts.has_prev else None
-    return render_template('user.html', user=user, posts=posts.items,
-                           next_url=next_url, prev_url=prev_url)
+    return render_template('user.html',
+                           user=user,
+                           posts=posts.items,
+                           next_url=next_url,
+                           prev_url=prev_url)
 
 
 @bp.route('/user/<username>/popup')
@@ -99,7 +110,8 @@ def edit_profile():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', title=_('Edit Profile'),
+    return render_template('edit_profile.html',
+                           title=_('Edit Profile'),
                            form=form)
 
 
@@ -138,9 +150,11 @@ def unfollow(username):
 @bp.route('/translate', methods=['POST'])
 @login_required
 def translate_text():
-    return jsonify({'text': translate(request.form['text'],
-                                      request.form['source_language'],
-                                      request.form['dest_language'])})
+    return jsonify({
+        'text':
+        translate(request.form['text'], request.form['source_language'],
+                  request.form['dest_language'])
+    })
 
 
 @bp.route('/search')
@@ -155,8 +169,11 @@ def search():
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
     prev_url = url_for('main.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
-    return render_template('search.html', title=_('Search'), posts=posts,
-                           next_url=next_url, prev_url=prev_url)
+    return render_template('search.html',
+                           title=_('Search'),
+                           posts=posts,
+                           next_url=next_url,
+                           prev_url=prev_url)
 
 
 @bp.route('/send_message/<recipient>', methods=['GET', 'POST'])
@@ -165,15 +182,18 @@ def send_message(recipient):
     user = User.query.filter_by(username=recipient).first_or_404()
     form = MessageForm()
     if form.validate_on_submit():
-        msg = Message(author=current_user, recipient=user,
+        msg = Message(author=current_user,
+                      recipient=user,
                       body=form.message.data)
         user.add_notification('unread_message_count', user.new_messages())
         db.session.add(msg)
         db.session.commit()
         flash(_('Your message has been sent.'))
         return redirect(url_for('main.user', username=recipient))
-    return render_template('send_message.html', title=_('Send Message'),
-                           form=form, recipient=recipient)
+    return render_template('send_message.html',
+                           title=_('Send Message'),
+                           form=form,
+                           recipient=recipient)
 
 
 @bp.route('/messages')
@@ -190,8 +210,10 @@ def messages():
         if messages.has_next else None
     prev_url = url_for('main.messages', page=messages.prev_num) \
         if messages.has_prev else None
-    return render_template('messages.html', messages=messages.items,
-                           next_url=next_url, prev_url=prev_url)
+    return render_template('messages.html',
+                           messages=messages.items,
+                           next_url=next_url,
+                           prev_url=prev_url)
 
 
 @bp.route('/notifications')
