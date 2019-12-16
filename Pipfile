@@ -23,6 +23,7 @@ flask-babel = "*"
 guess-language-spirit = "*"
 requests = "*"
 elasticsearch = "*"
+rq = "*"
 
 [requires]
 python_version = "3.6"
